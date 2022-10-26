@@ -1,0 +1,8 @@
+[theme]
+base="dark"
+
+[global]
+dataFrameSerialization = "legacy"
+
+[browser]
+serverAddress = "localhost"
