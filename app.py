@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px 
 import numpy as np
+import statsmodels
+import openpyxl
+import defusedxml
 
 ### Config
 st.set_page_config(
@@ -16,7 +19,7 @@ st.title("Analysis Getaround")
 
 @st.cache
 def load_data():
-    df_delay = pd.read_excel('get_around_delay_analysis.xlsx', engine='openpyxl')
+    df_delay = pd.read_excel('https://getaround-data.s3.eu-west-3.amazonaws.com/get_around_delay_analysis.xlsx', engine='openpyxl')
     return df_delay
 
 st.write("To display data, click on the checkbox")
@@ -122,6 +125,7 @@ with col1:
     )
     st.plotly_chart(fig, use_container_width=True)
 
+
 with col2:
     df_delay_clean_bis = df_delay_clean[df_delay_clean['type_driver'] != 'driver on time']
     time_at_check_out = st.selectbox("Early and late checkout distribution: select a type of driver 😇", df_delay_clean_bis['type_driver'].sort_values().unique())
@@ -178,7 +182,15 @@ with col2:
     color_discrete_map={'mobile':'cornflowerblue','connect':'cyan'}, 
     title='Checkin type by type of drivers'
     )
+    st.markdown("""
+    Among drivers late, almost 30% used the connect checkin type
+    """)
     st.plotly_chart(fig, use_container_width=True)
 
+st.markdown("""
+In conclusion:
+      * threshold: the minimum delay between two rentals should be 2 hours, to avoid 75% of delays.
+      * scope: the feature should be enabled for all checkin type: mobile & connect. 
+""")
 
-#####
+
