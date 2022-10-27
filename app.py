@@ -4,7 +4,7 @@ import plotly.express as px
 import numpy as np
 import statsmodels
 import openpyxl
-#import defusedxml
+import defusedxml
 
 ### Config
 st.set_page_config(
