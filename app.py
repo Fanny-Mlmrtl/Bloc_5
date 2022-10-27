@@ -19,7 +19,7 @@ st.title("Analysis Getaround")
 
 @st.cache
 def load_data():
-    df_delay = pd.read_excel('https://github.com/Fanny-Mlmrtl/Bloc_5/blob/main/get_around_delay_analysis.xlsx', engine="openpyxl")
+    df_delay = pd.read_excel('s3://getaround-data/get_around_delay_analysis.xlsx', engine=openpyxl)
     return df_delay
 
 st.write("To display data, click on the checkbox")
