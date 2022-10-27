@@ -3,8 +3,8 @@ import pandas as pd
 import plotly.express as px 
 import numpy as np
 import statsmodels
-#import openpyxl
-import defusedxml
+import openpyxl
+#import defusedxml
 
 ### Config
 st.set_page_config(
@@ -19,7 +19,7 @@ st.title("Analysis Getaround")
 
 @st.cache
 def load_data():
-    df_delay = pd.read_excel('https://getaround-data.s3.eu-west-3.amazonaws.com/get_around_delay_analysis.xlsx')
+    df_delay = pd.read_excel('https://github.com/Fanny-Mlmrtl/Bloc_5/blob/main/get_around_delay_analysis.xlsx')
     return df_delay
 
 st.write("To display data, click on the checkbox")
