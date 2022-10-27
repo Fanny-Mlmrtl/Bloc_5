@@ -17,7 +17,7 @@ st.set_page_config(
 
 st.title("Analysis Getaround")
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_data():
     df_delay = pd.read_excel('get_around_delay_analysis.xlsx', engine=openpyxl)
     return df_delay
